@@ -22,6 +22,20 @@ npm run build      # type-check + production build
 npm run typecheck  # types only
 ```
 
+## Live demo (GitHub Pages)
+
+This repo auto-deploys to GitHub Pages via `.github/workflows/deploy.yml` on
+every push to `main`. One-time setup: in **Settings → Pages**, set
+**Source = GitHub Actions**. After the next push to `main` the app is live at:
+
+```
+https://vinizinmoraes.github.io/frontend-study/
+```
+
+The build uses a relative `base` and the app uses hash routing, so deep links
+like `…/frontend-study/#/03-debounced-search` work without any SPA-fallback
+configuration.
+
 Stack: **React 18 + TypeScript + Vite**. No router or UI library — kept minimal
 on purpose so the focus is React, not config.
 
