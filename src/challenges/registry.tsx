@@ -9,6 +9,9 @@ import Accordion from "./06-accordion/Accordion";
 import StarRating from "./07-star-rating/StarRating";
 import InfiniteScroll from "./08-infinite-scroll/InfiniteScroll";
 import StaleClosure from "./09-stale-closure/StaleClosure";
+import SignupForm from "./10-form-validation/SignupForm";
+import ModalDemo from "./11-modal/ModalDemo";
+import Performance from "./12-performance/Performance";
 
 export type Difficulty = "Easy" | "Medium" | "Hard";
 export type Kind = "reference" | "starter";
@@ -115,6 +118,36 @@ export const challenges: Challenge[] = [
     summary:
       "A counter that mysteriously freezes at 1. Understand WHY, then three ways to fix it.",
     component: StaleClosure,
+  },
+  {
+    id: "10-form-validation",
+    title: "Form Validation",
+    difficulty: "Medium",
+    kind: "starter",
+    tags: ["controlled inputs", "validation", "touched state", "async submit"],
+    summary:
+      "Signup form with validation. The test is WHEN you show errors (touched/blur), not just how.",
+    component: SignupForm,
+  },
+  {
+    id: "11-modal",
+    title: "Modal / Dialog (focus trap)",
+    difficulty: "Hard",
+    kind: "reference",
+    tags: ["portals", "focus trap", "a11y", "Esc / scroll lock"],
+    summary:
+      "Accessible dialog: portal, Esc, backdrop click, focus trap + restore. The a11y 40% most people miss.",
+    component: ModalDemo,
+  },
+  {
+    id: "12-performance",
+    title: "Performance: memo / useCallback / useMemo",
+    difficulty: "Medium",
+    kind: "reference",
+    tags: ["React.memo", "useCallback", "useMemo", "re-renders"],
+    summary:
+      "Watch render counters. Learn what actually causes re-renders and when memoization helps (and hurts).",
+    component: Performance,
   },
 ];
 

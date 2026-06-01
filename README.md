@@ -59,6 +59,9 @@ A good loop:
 | 07 | Star Rating | Medium | hover vs committed state, keyboard a11y |
 | 08 | Infinite Scroll | Hard | `IntersectionObserver`, pagination, refs |
 | 09 | The Stale Closure Bug | Medium | closures, effect deps, functional updates |
+| 10 | Form Validation | Medium | controlled inputs, validation, touched/blur, async submit |
+| 11 | Modal / Dialog | Hard | portals, **focus trap**, a11y, Esc / scroll lock |
+| 12 | Performance | Medium | `React.memo`, `useCallback`, `useMemo`, re-renders |
 
 ## Shared hooks (`src/hooks/`)
 
@@ -67,16 +70,14 @@ Reusable hooks the challenges build on — study these patterns:
 - `useInterval` — declarative `setInterval` that avoids stale closures.
 - `useDebounce` — debounce any value with `setTimeout` + cleanup.
 - `useLocalStorage` — `useState` that persists, with lazy init + safe parsing.
+- `useOnClickOutside` — detect clicks outside an element (menus, popovers).
 
 ## Roadmap / ideas to add next
 
 Themes worth building once you've cleared the above:
 
-- **Forms:** validation, controlled inputs, a `useForm` hook, async submit.
-- **Modal / Dialog:** focus trap, `Esc` to close, `useOnClickOutside`, portals.
-- **Tabs / Carousel:** keyboard nav, ARIA.
-- **Performance:** `React.memo` / `useMemo` / `useCallback`, list virtualization,
-  why a stable reference matters.
+- **Tabs / Carousel:** keyboard nav, ARIA, roving tabindex.
+- **List virtualization:** render only visible rows for a 10k-item list.
 - **`useReducer`:** rebuild the todo app with a reducer; a tiny shopping cart.
 - **Context:** a theme switcher; avoiding unnecessary re-renders.
 - **Promises / async:** `Promise.all`, a retry-with-backoff helper, polling.
