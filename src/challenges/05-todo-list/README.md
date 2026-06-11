@@ -2,6 +2,8 @@
 
 **Difficulty:** Easy · **Type:** ✍️ Your turn
 
+> 🔑 **Stuck or done?** A worked solution lives in this folder's `solution/` directory — also viewable in the app via the "Solution" tab. Try it yourself first; reading the answer before struggling defeats the drill.
+
 ## Prompt
 
 > Build a todo app: add, toggle complete, delete, and filter by

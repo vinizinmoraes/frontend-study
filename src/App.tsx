@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { Challenge } from "./challenges/registry";
 import { challenges, getChallenge } from "./challenges/registry";
 
 /**
@@ -50,43 +51,82 @@ export default function App() {
       </aside>
 
       <main className="content">
-        {active ? <ChallengeView key={active.id} /> : <Home />}
+        {active ? <ChallengeView key={active.id} challenge={active} /> : <Home />}
       </main>
     </div>
   );
+}
 
-  function ChallengeView() {
-    const c = active!;
-    const Component = c.component;
-    return (
-      <article>
-        <header className="challenge-header">
-          <div className="challenge-meta">
-            <span className={`badge badge-${c.difficulty.toLowerCase()}`}>
-              {c.difficulty}
+function ChallengeView({ challenge: c }: { challenge: Challenge }) {
+  const [showSolution, setShowSolution] = useState(false);
+  const Component = showSolution && c.solution ? c.solution : c.component;
+
+  return (
+    <article>
+      <header className="challenge-header">
+        <div className="challenge-meta">
+          <span className={`badge badge-${c.difficulty.toLowerCase()}`}>
+            {c.difficulty}
+          </span>
+          <span className={`badge badge-${c.kind}`}>
+            {c.kind === "reference" ? "📖 Reference solution" : "✍️ Your turn"}
+          </span>
+          {c.tags.map((t) => (
+            <span key={t} className="tag">
+              {t}
             </span>
-            <span className={`badge badge-${c.kind}`}>
-              {c.kind === "reference" ? "📖 Reference solution" : "✍️ Your turn"}
-            </span>
-            {c.tags.map((t) => (
-              <span key={t} className="tag">
-                {t}
-              </span>
-            ))}
-          </div>
-          <h1>{c.title}</h1>
-          <p className="challenge-summary">{c.summary}</p>
-          <p className="hint">
-            📄 Full spec &amp; talking points:{" "}
-            <code>src/challenges/{c.id}/README.md</code>
-          </p>
-        </header>
-        <section className="demo">
-          <Component />
-        </section>
-      </article>
-    );
-  }
+          ))}
+        </div>
+        <h1>{c.title}</h1>
+        <p className="challenge-summary">{c.summary}</p>
+        <p className="hint">
+          📄 Full spec &amp; talking points:{" "}
+          <code>src/challenges/{c.id}/README.md</code>
+          {c.solution && (
+            <>
+              {" "}
+              · 🔑 Worked solution: <code>src/challenges/{c.id}/solution/</code>
+            </>
+          )}
+        </p>
+      </header>
+
+      {c.solution && (
+        <div className="row" style={{ marginBottom: 14 }} role="tablist">
+          <button
+            className="btn secondary"
+            role="tab"
+            aria-selected={!showSolution}
+            style={
+              !showSolution
+                ? { borderColor: "var(--accent)", color: "var(--accent)" }
+                : undefined
+            }
+            onClick={() => setShowSolution(false)}
+          >
+            ✍️ Your attempt
+          </button>
+          <button
+            className="btn secondary"
+            role="tab"
+            aria-selected={showSolution}
+            style={
+              showSolution
+                ? { borderColor: "var(--accent)", color: "var(--accent)" }
+                : undefined
+            }
+            onClick={() => setShowSolution(true)}
+          >
+            🔑 Solution
+          </button>
+        </div>
+      )}
+
+      <section className="demo">
+        <Component />
+      </section>
+    </article>
+  );
 }
 
 function Home() {
