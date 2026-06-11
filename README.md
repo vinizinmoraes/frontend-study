@@ -46,7 +46,7 @@ Each challenge has two flavours:
 | Badge | Meaning |
 | --- | --- |
 | 📖 **Reference solution** | Fully implemented. Read it, run it, understand *why*, then close it and rebuild from scratch. |
-| ✍️ **Your turn** | A starter with `TODO`s. Implement it against the spec in that folder's `README.md`. |
+| ✍️ **Your turn** | A starter with `TODO`s. Implement it against the spec in that folder's `README.md`. Each starter also ships a worked answer in its `solution/` folder, viewable in the app via the **Solution** tab. |
 
 > 💡 The real value is in the **per-challenge `README.md`** files. Each is written
 > like an interview prompt: requirements, the gotchas the interviewer is probing
@@ -106,6 +106,7 @@ Themes worth building once you've cleared the above:
 src/challenges/NN-name/
   Component.tsx     # the challenge
   README.md         # the spec / interview prompt
+  solution/         # (starters only) the worked answer
 ```
 ```
 

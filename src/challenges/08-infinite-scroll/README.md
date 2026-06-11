@@ -2,6 +2,8 @@
 
 **Difficulty:** Hard · **Type:** ✍️ Your turn
 
+> 🔑 **Stuck or done?** A worked solution lives in this folder's `solution/` directory — also viewable in the app via the "Solution" tab. Try it yourself first; reading the answer before struggling defeats the drill.
+
 ## Prompt
 
 > Render a long, paginated list. As the user scrolls near the bottom, load the

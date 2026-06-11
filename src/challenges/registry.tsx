@@ -13,6 +13,13 @@ import SignupForm from "./10-form-validation/SignupForm";
 import ModalDemo from "./11-modal/ModalDemo";
 import Performance from "./12-performance/Performance";
 
+import TrafficLightSolution from "./02-traffic-light/solution/TrafficLightSolution";
+import TodoListSolution from "./05-todo-list/solution/TodoListSolution";
+import AccordionSolution from "./06-accordion/solution/AccordionSolution";
+import StarRatingSolution from "./07-star-rating/solution/StarRatingSolution";
+import InfiniteScrollSolution from "./08-infinite-scroll/solution/InfiniteScrollSolution";
+import SignupFormSolution from "./10-form-validation/solution/SignupFormSolution";
+
 export type Difficulty = "Easy" | "Medium" | "Hard";
 export type Kind = "reference" | "starter";
 
@@ -26,6 +33,8 @@ export interface Challenge {
   /** One-line interview framing. */
   summary: string;
   component: ComponentType;
+  /** For starters: the worked solution, shown via a toggle in the app. */
+  solution?: ComponentType;
 }
 
 export const challenges: Challenge[] = [
@@ -48,6 +57,7 @@ export const challenges: Challenge[] = [
     summary:
       "Cycle red → green → yellow on a timer. A tiny finite state machine driven by effects.",
     component: TrafficLight,
+    solution: TrafficLightSolution,
   },
   {
     id: "03-debounced-search",
@@ -78,6 +88,7 @@ export const challenges: Challenge[] = [
     summary:
       "The classic. Add/toggle/delete/filter todos, persisted to localStorage.",
     component: TodoList,
+    solution: TodoListSolution,
   },
   {
     id: "06-accordion",
@@ -88,6 +99,7 @@ export const challenges: Challenge[] = [
     summary:
       "Expand/collapse panels. Single vs multi-open, keyboard support, ARIA attributes.",
     component: Accordion,
+    solution: AccordionSolution,
   },
   {
     id: "07-star-rating",
@@ -98,6 +110,7 @@ export const challenges: Challenge[] = [
     summary:
       "Hover-preview star rating. Looks trivial; the keyboard + accessibility part is the test.",
     component: StarRating,
+    solution: StarRatingSolution,
   },
   {
     id: "08-infinite-scroll",
@@ -108,6 +121,7 @@ export const challenges: Challenge[] = [
     summary:
       "Load the next page when a sentinel scrolls into view. Avoid duplicate fetches.",
     component: InfiniteScroll,
+    solution: InfiniteScrollSolution,
   },
   {
     id: "09-stale-closure",
@@ -128,6 +142,7 @@ export const challenges: Challenge[] = [
     summary:
       "Signup form with validation. The test is WHEN you show errors (touched/blur), not just how.",
     component: SignupForm,
+    solution: SignupFormSolution,
   },
   {
     id: "11-modal",
